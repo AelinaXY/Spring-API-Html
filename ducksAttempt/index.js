@@ -24,10 +24,16 @@
 
         const personBody = document.createElement("div");
         personBody.classList.add("card-body");
+
         const personName = document.createElement("p");
         personName.innerText = `Name: ${fullName}`;
         personName.classList.add("card-text");
         personBody.appendChild(personName);
+
+        const personId = document.createElement("p");
+        personId.innerText = `Id: ${id}`;
+        personId.classList.add("card-text");
+        personBody.appendChild(personId);
 
         const personAge = document.createElement("p");
         personAge.innerText = `Age: ${oldNess}`;
@@ -57,18 +63,31 @@
 
     document.getElementById("personForm").addEventListener("submit", async function(e) {
         e.preventDefault();
-        const {fullName, oldNess, occupation, notNiNumber} = this;
+        const {fullName, oldNess, occupation,} = this;
         
         const newPerson = {
             fullName: fullName.value,
             oldNess: oldNess.value,
             occupation: occupation.value,
-            notNiNumber: notNiNumber.value
+            notNiNumber: ""
         }
         this.reset();
         fullName.focus();
         try {
             const res = await axios.post(`${address}/create`, newPerson);
+            getPeople();
+        } catch(error) {
+            console.error(error);
+        }
+    });
+
+    document.getElementById("updateButton").addEventListener("click", async function(e) {
+        e.preventDefault();
+        const personForm = document.getElementById("personForm");
+        console.log(personForm);
+        const {fullName, oldNess, occupation, id} = personForm;
+        try {
+            const res = await axios.patch(`${address}/update/${id.value}?age=${oldNess.value}&name=${fullName.value}&job=${occupation.value}`);
             getPeople();
         } catch(error) {
             console.error(error);

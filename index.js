@@ -35,7 +35,7 @@ const BASE_URL = "http://localhost:8080";
         document.querySelectorAll('#update > input').forEach(el => data[el.name] = el.value);
 
         console.log(data);
-        axios.patch(BASE_URL + `/update/${data.id}?age=${data.oldNess}&name=${data.name}&job=${data.job}`, data)
+        axios.patch(BASE_URL + `/update/${data.id}?age=${data.oldNess}&name=${data.name}&job=${data.job}`)
             .then(res => displayOutput("updateOutput", res)
             ).catch(err => console.error(err));
     });
