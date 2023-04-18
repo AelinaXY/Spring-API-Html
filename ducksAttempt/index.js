@@ -45,13 +45,6 @@
         personOccupation.classList.add("card-text");
         personBody.appendChild(personOccupation);
 
-        const deleteBtn = document.createElement("button");
-        deleteBtn.innerText = 'DELETE';
-        deleteBtn.classList.add("btn", "btn-danger");
-        deleteBtn.addEventListener('click', () => deletePerson(id));
-        personBody.appendChild(deleteBtn);
-
-
         const updateBtn = document.createElement("button");
         updateBtn.innerText = "UPDATE";
         updateBtn.classList.add("btn", "btn-primary");
@@ -60,7 +53,12 @@
         updateBtn.addEventListener('click', () => updatePerson(id));
         personBody.appendChild(updateBtn);
 
-
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText = 'DELETE';
+        deleteBtn.classList.add("btn", "btn-danger");
+        deleteBtn.addEventListener('click', () => deletePerson(id));
+        personBody.appendChild(deleteBtn);
+        
         personCard.appendChild(personBody);
         person.appendChild(personCard);
 
