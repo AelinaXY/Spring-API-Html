@@ -36,14 +36,51 @@
                     <div class="mt-3">
                         <button class="btn btn-primary" type="reset">Reset</button>
                         <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+
                 </form>
-                <button class="btn btn-warning" type="button" id="updateButton">Update</button>
-            </div>
 
             </section>
             <section class="col">
                 <div id="output" class="row row-cols-3 g-4"></div>
             </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Update Person</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3" id="updateForm">
+                            <div class="col-md-12">
+                              <p id="modalIdLabel"></p>
+                              </div>
+                            <div class="col-md-12">
+                                <label for="personNameModal" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="personNameModal" name="fullName">
+                              </div>
+                              <div class="col-md-12">
+                                <label for="personAgeModal" class="form-label">Age</label>
+                                <input type="number" class="form-control" id="personAgeModal" name="oldNess">
+                              </div>
+                              <div class="col-md-12">
+                                <label for="personOccupationModal" class="form-label">Occupation</label>
+                                <input type="text" class="form-control" id="personOccupationModal" name="occupation">
+                              </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
+                </form>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+  
         </div>
     </main>
 </body>

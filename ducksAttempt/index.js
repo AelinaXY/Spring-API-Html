@@ -50,6 +50,17 @@
         deleteBtn.classList.add("btn", "btn-danger");
         deleteBtn.addEventListener('click', () => deletePerson(id));
         personBody.appendChild(deleteBtn);
+
+
+        const updateBtn = document.createElement("button");
+        updateBtn.innerText = "UPDATE";
+        updateBtn.classList.add("btn", "btn-primary");
+        updateBtn.setAttribute("data-bs-toggle","modal");
+        updateBtn.setAttribute("data-bs-target","#updateModal");
+        updateBtn.addEventListener('click', () => updatePerson(id));
+        personBody.appendChild(updateBtn);
+
+
         personCard.appendChild(personBody);
         person.appendChild(personCard);
 
@@ -81,18 +92,24 @@
         }
     });
 
-    document.getElementById("updateButton").addEventListener("click", async function(e) {
+    document.getElementById("updateForm").addEventListener("submit", async function(e) {
         e.preventDefault();
-        const personForm = document.getElementById("personForm");
-        console.log(personForm);
-        const {fullName, oldNess, occupation, id} = personForm;
+        const {fullName, oldNess, occupation} = this;
+
+        const id = document.getElementById("modalIdLabel").innerHTML;
+        this.reset;
         try {
-            const res = await axios.patch(`${address}/update/${id.value}?age=${oldNess.value}&name=${fullName.value}&job=${occupation.value}`);
+            const res = await axios.patch(`${address}/update/${id}?age=${oldNess.value}&name=${fullName.value}&job=${occupation.value}`);
             getPeople();
         } catch(error) {
             console.error(error);
         }
     });
+
+    function updatePerson(id)
+    {
+        document.getElementById("modalIdLabel").innerHTML = id;
+    }
 
     getPeople();
     
