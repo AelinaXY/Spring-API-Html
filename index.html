@@ -1,0 +1,57 @@
+
+<html>
+
+	<head>
+		<link rel="stylesheet" href="index.css"/>
+	</head>
+
+	<body>
+		<h1>Person Creator</h1>
+
+		<div id="create">
+			<h2>Create</h2>
+			<label for="createName">Name: </label>
+			<input id="createName" name="fullName"/>
+			<label for="createAge">Age: </label>
+			<input id="createAge" name="oldNess"/>
+			<label for="createOccupation">Occupation: </label>
+			<input id="createOccupation" name="occupation"/>
+            <label for="createNINumber">NI Number: </label>
+			<input id="createNiNumber" name="notNiNumber"/>
+			<button type="button" id="createButton">CREATE</button>
+			<pre id="createOutput"></pre>
+		</div>
+		<div id="read">
+			<h2>Read</h2>
+			<button type="button" id="readButton">READ</button>
+			<pre id="readOutput"></pre>
+            <h2>Read by Id</h2>
+            <label for="updateId">Id: </label>
+			<input id="updateId" name="id"/>
+			<button type="button" id="readButtonId">READ</button>
+			<pre id="readOutputId"></pre>
+		</div>
+		<div id="update">
+			<h2>Update</h2>
+            <label for="updateId">Id to Update: </label>
+			<input id="updateId" name="id"/>
+			<label for="updateAge">New Age: </label>
+			<input id="updateAge" name="oldNess"/>
+            <label for="updateName">New Name: </label>
+			<input id="updateName" name="name"/>
+            <label for="updateJob">New Job: </label>
+			<input id="updateJob" name="job"/>
+			<button type="button" id="updateButton">UPDATE</button>
+			<pre id="updateOutput"></pre>
+		</div>
+		<div id="delete">
+			<h2>Delete</h2>
+			<label for="deleteInput">ID: </label>
+			<input id="deleteInput" /><button type="button" id="deleteButton">DELETE</button>
+			<pre id="deleteOutput" id="deleteButton"></pre>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+		<script src="index.js"></script>
+	</body>
+
+</html>
